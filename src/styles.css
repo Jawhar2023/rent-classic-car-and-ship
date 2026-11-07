@@ -1,0 +1,189 @@
+@import "/assets/css/astonmartinv2.css";
+@import "/assets/css/font.css";
+@import "/assets/css/component-styles.css";
+@import "/assets/css/clone-fix.css";
+@import "/assets/css/experiences-page.css";
+@import "/assets/css/lazerocare-page.css";
+
+#root {
+  display: contents;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.preloader-v4 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  background: #0c1218;
+}
+
+.preloader-v4::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(50% 82% at 50% 50%, rgba(64, 192, 216, 0.18) 0%, rgba(12, 18, 24, 0.95) 100%);
+  background-blend-mode: screen;
+}
+
+.preloader-v4__box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preloader-v4__cont {
+  position: relative;
+  width: 245px;
+}
+
+@media only screen and (min-width: 429px) {
+  .preloader-v4__cont {
+    width: 320px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .preloader-v4__cont {
+    width: 505px;
+  }
+}
+
+.preloader-v4__wrap {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-v4__logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transform: scale(0.82);
+  filter: blur(8px);
+  transition:
+    opacity 1.4s cubic-bezier(0.3, 0, 0.75, 1),
+    transform 1.4s cubic-bezier(0.3, 0, 0.75, 1),
+    filter 1.4s cubic-bezier(0.3, 0, 0.75, 1);
+}
+
+.preloader-v4.active .preloader-v4__logo {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.preloader-v4.fadeout {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+@keyframes preloader_fadeout {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  25% {
+    transform: translateY(-10vh) scale(0.5);
+  }
+
+  50% {
+    transform: translateY(-25vh) scale(0.3);
+  }
+
+  100% {
+    transform: translateY(-50vh) scale(0.2);
+    opacity: 0;
+  }
+}
+
+.preloader-v4.fadeout .preloader-v4__cont {
+  animation-timing-function: linear;
+  animation-duration: 0.75s;
+  animation-name: preloader_fadeout;
+  animation-fill-mode: forwards;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+.global-navigation-v2[data-state="open"] {
+  visibility: visible !important;
+}
+
+/* Home hero — keep title + Explore above media (parallax was clipping CTAs) */
+.hero-banner-carousel.hero-full .swiper-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 35%, rgba(0, 0, 0, 0.72) 100%);
+}
+
+.hero-banner-carousel.hero-full .hero-carousel-media,
+.hero-banner-carousel.hero-full .layout-full,
+.hero-banner-carousel.hero-full picture,
+.hero-banner-carousel.hero-full .video {
+  z-index: 0 !important;
+}
+
+.hero-banner-carousel.hero-full .hero-carousel-container--home {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5 !important;
+  pointer-events: none;
+}
+
+.hero-banner-carousel.hero-full .hero-carousel-cta-button-container {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+  pointer-events: auto;
+}
+
+.hero-banner-carousel.hero-full .hero-carousel-cta-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto;
+  text-decoration: none;
+  min-width: 150px;
+  height: 56px;
+  background: #ffffff !important;
+  color: #00665e !important;
+  box-shadow: 0 1px 4px rgba(0, 64, 58, 0.1), inset 0 -1px 0 rgba(0, 64, 58, 0.1);
+}
+
+.hero-banner-carousel.hero-full .hero-carousel-cta-button:hover {
+  background: #e3f1f0 !important;
+}
+
+.hero-banner-carousel.hero-full .hero-carousel-cta-button .cta_icon--primary-dark svg,
+.hero-banner-carousel.hero-full .hero-carousel-cta-button .cta_icon--secondary-dark svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}

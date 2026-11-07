@@ -1,0 +1,1251 @@
+/* Experiences landing page — cloned layout from astonmartin.com/en-us/experiences */
+
+/* Scroll reveal — fade in / fade out */
+@keyframes experiencesFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.experiences-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.experiences-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.experiences-reveal.is-visible .experience-program__media,
+.experiences-reveal.is-visible .experience-program__copy {
+  animation: experiencesFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.experiences-reveal.is-visible .experience-program__copy {
+  animation-delay: 0.14s;
+}
+
+.experiences-reveal.is-visible .experiences-reservation__aside,
+.experiences-reveal.is-visible .experiences-reservation__panel {
+  animation: experiencesFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.experiences-reveal.is-visible .experiences-reservation__panel {
+  animation-delay: 0.16s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experiences-reveal,
+  .experiences-reveal.is-visible .experience-program__media,
+  .experiences-reveal.is-visible .experience-program__copy,
+  .experiences-reveal.is-visible .experiences-reservation__aside,
+  .experiences-reveal.is-visible .experiences-reservation__panel {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Experiences page — white navbar with Trillium logo */
+.global-header-v2--experiences .header-wrapper,
+body[data-page="experiences-page"] .global-header-v2 .header-wrapper {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid rgba(18, 18, 18, 0.08);
+}
+
+.global-header-v2--experiences .hamburger,
+.global-header-v2--experiences .close-icon,
+body[data-page="experiences-page"] .global-header-v2 .hamburger,
+body[data-page="experiences-page"] .global-header-v2 .close-icon {
+  color: #121212 !important;
+}
+
+.global-header-v2--experiences .header-logo--trillium,
+body[data-page="experiences-page"] .header-logo--trillium {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: auto !important;
+  max-width: min(240px, 46vw);
+}
+
+.global-header-v2--experiences .header-logo--trillium .header-logo__img,
+body[data-page="experiences-page"] .header-logo--trillium .header-logo__img {
+  display: block !important;
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media only screen and (min-width: 781px) {
+  .global-header-v2--experiences .header-logo--trillium .header-logo__img,
+  body[data-page="experiences-page"] .header-logo--trillium .header-logo__img {
+    height: 48px;
+  }
+}
+
+.experiences-page,
+.experiences-page .experiences-intro,
+.experiences-page .long-text-block {
+  background: #ffffff !important;
+  color: #121212;
+}
+
+/* Hero video — full viewport background */
+.experiences-hero.experiences-hero--video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: var(--doc-height, 100vh);
+  min-height: 100vh;
+  max-height: none;
+  overflow: hidden;
+  background: #000;
+}
+
+.experiences-hero.experiences-hero--video.hero-model-banner,
+.experiences-hero.experiences-hero--video.hero-banner-carousel {
+  height: 100vh !important;
+  height: var(--doc-height, 100vh) !important;
+  min-height: 100vh !important;
+  max-height: none !important;
+}
+
+.experiences-hero.experiences-hero--video .experiences-hero__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.experiences-hero.experiences-hero--video .experiences-hero__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+  transform: none;
+}
+
+.experiences-hero.hero-model-banner {
+  height: 85vh;
+  min-height: 560px;
+  max-height: 900px;
+  background: #1a1a1a;
+}
+
+.experiences-hero.hero-banner-carousel {
+  height: 85vh !important;
+  min-height: 560px !important;
+  max-height: 900px !important;
+}
+
+.experiences-hero .swiper-slide {
+  position: relative;
+}
+
+.experiences-hero__media,
+.experiences-hero__media .video__player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.experiences-hero__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Intro */
+.experiences-intro {
+  padding: 72px 0 56px;
+  background: #fff;
+}
+
+.experiences-intro h3 {
+  font-family: var(--ff-amflare, serif);
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 32px;
+  color: #121212;
+}
+
+.experiences-intro__body {
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 18px;
+  line-height: 1.65;
+  color: #121212;
+  text-align: center;
+}
+
+.experiences-intro .row:last-child {
+  justify-content: center;
+}
+
+.experiences-spacer {
+  height: 50px;
+}
+
+/* Bloodline carousel */
+.bloodline-carousel {
+  position: relative;
+  background: #0a0a0a;
+  color: #fff;
+  overflow: hidden;
+}
+
+.bloodline-carousel .swiper-container {
+  width: 100%;
+  height: min(78vh, 820px);
+  min-height: 480px;
+}
+
+.bloodline-carousel .swiper-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.bloodline-carousel .swiper-slide picture,
+.bloodline-carousel .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bloodline-carousel .swiper-slide-header {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  z-index: 2;
+}
+
+.bloodline-carousel .swiper-slide-header-eyebrow {
+  margin: 0;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.bloodline-carousel .swiper-slide-footer {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 32px;
+  z-index: 2;
+}
+
+.bloodline-carousel .swiper-slide-footer-description {
+  margin: 0;
+  font-family: var(--ff-amflare, serif);
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.2;
+  color: #fff;
+}
+
+.bloodline-carousel .swiper-navigation {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bloodline-carousel .bloodline_navigation {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.bloodline-carousel .bloodline_navigation svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.bloodline-carousel .bloodline_navigation.swiper-button-prev svg {
+  transform: rotate(-90deg);
+}
+
+.bloodline-carousel .bloodline_navigation.swiper-button-next svg {
+  transform: rotate(90deg);
+}
+
+.bloodline-carousel .bloodline_navigation:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.bloodline-carousel-restart,
+.bloodline-carousel-helpText {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.bloodline-carousel-restart {
+  left: 32px;
+  bottom: 32px;
+}
+
+.bloodline-carousel-helpText {
+  right: 32px;
+  bottom: 32px;
+}
+
+.bloodline-carousel-restart svg,
+.bloodline-carousel-helpText svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Long text program blocks (ASCEND, SUPERTOURS, UNLEASHED, SUPERCHARGED) */
+.experiences-page .long-text-block {
+  padding: clamp(48px, 6vw, 88px) 0;
+  background: #fff;
+  visibility: visible !important;
+  min-height: auto !important;
+}
+
+.experience-program__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.experience-program__layout--right {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+
+.experience-program__media {
+  width: 100%;
+  min-width: 0;
+}
+
+.experience-program__carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.experience-program__carousel .image-hero,
+.experience-program__carousel .image-hero img,
+.experience-program__swiper,
+.experience-program__swiper .swiper-slide {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.experience-program__carousel .image-hero img {
+  object-fit: cover;
+}
+
+.experience-program__swiper {
+  position: absolute;
+  inset: 0;
+}
+
+.experience-program__swiper .swiper-wrapper,
+.experience-program__swiper .swiper-slide {
+  height: 100%;
+}
+
+.experience-program__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.experience-program__arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.experience-program__arrow--prev {
+  left: 16px;
+}
+
+.experience-program__arrow--prev::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3e%3cpath d='M14 6L8 12L14 18' stroke='%23ffffff' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+  margin-left: -2px;
+}
+
+.experience-program__arrow--next {
+  right: 16px;
+}
+
+.experience-program__arrow--next::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3e%3cpath d='M10 6L16 12L10 18' stroke='%23ffffff' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+  margin-left: 2px;
+}
+
+.experience-program__arrow:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.experience-program__arrow.swiper-button-disabled {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.experience-program__copy {
+  padding: clamp(28px, 4vw, 64px) clamp(12px, 2vw, 32px);
+}
+
+.experience-program__copy .claim-in {
+  max-width: 540px;
+}
+
+.experience-program__layout--right .experience-program__copy .claim-in {
+  margin-left: auto;
+}
+
+.experience-program__copy .claim h3,
+.experience-program__title {
+  font-family: AstonMartinFlare, var(--ff-amflare, serif) !important;
+  font-size: clamp(2.25rem, 4.5vw, 3.875rem);
+  font-weight: 400;
+  line-height: 1.08;
+  margin: 0 0 clamp(28px, 3.5vw, 44px);
+  color: #0f0f0f;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.experience-program__copy .claim p,
+.experience-program__description {
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif) !important;
+  font-size: clamp(1.125rem, 1.55vw, 1.4375rem);
+  font-weight: 300;
+  line-height: 1.85;
+  color: #1c1c1c;
+  margin: 0 0 clamp(36px, 4vw, 52px);
+  letter-spacing: 0.018em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.experience-program__eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #00665e;
+}
+
+.experience-program__highlights {
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-program__highlights li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.experience-program__highlights li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00665e;
+}
+
+.experience-program__copy .cta_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  padding: 16px 32px;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif) !important;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.long-text-cta-button-container {
+  margin-top: 8px;
+}
+
+@media (min-width: 1280px) {
+  .experience-program__copy .claim h3,
+  .experience-program__title {
+    font-size: 3.875rem;
+  }
+
+  .experience-program__copy .claim p,
+  .experience-program__description {
+    font-size: 1.4375rem;
+    line-height: 1.9;
+  }
+}
+
+/* VIP Reservation */
+.experiences-reservation {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(72px, 8vw, 120px) 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 102, 94, 0.22) 0%, transparent 62%),
+    linear-gradient(180deg, #07110f 0%, #0c1715 48%, #101c1a 100%);
+  color: #f4f4f2;
+  scroll-margin-top: 88px;
+}
+
+.experiences-reservation__glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.experiences-reservation__glow--left {
+  top: 10%;
+  left: -120px;
+  background: rgba(0, 102, 94, 0.55);
+}
+
+.experiences-reservation__glow--right {
+  right: -100px;
+  bottom: 0;
+  background: rgba(196, 169, 98, 0.22);
+}
+
+.experiences-reservation__layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(24px, 3vw, 40px);
+  align-items: stretch;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.experiences-reservation__aside {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experiences-reservation__aside-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(7, 17, 15, 0.92) 8%, rgba(7, 17, 15, 0.72) 55%, rgba(7, 17, 15, 0.9) 100%),
+    linear-gradient(0deg, rgba(0, 102, 94, 0.18), rgba(0, 102, 94, 0.18));
+}
+
+.experiences-reservation__aside-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100%;
+  padding: clamp(32px, 4vw, 56px);
+}
+
+.experiences-reservation__eyebrow,
+.experiences-reservation__panel-eyebrow {
+  margin: 0 0 16px;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #c4a962;
+}
+
+.experiences-reservation__heading {
+  margin: 0 0 20px;
+  font-family: AstonMartinFlare, var(--ff-amflare, serif);
+  font-size: clamp(2.4rem, 4.8vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+
+.experiences-reservation__intro {
+  margin: 0 0 32px;
+  max-width: 34ch;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.experiences-reservation__perks {
+  margin: 0 0 36px;
+  padding: 0;
+  list-style: none;
+}
+
+.experiences-reservation__perks li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 14px;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.experiences-reservation__perks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 1px;
+  background: #c4a962;
+}
+
+.experiences-reservation__seal {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.experiences-reservation__seal-line {
+  flex-shrink: 0;
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, #c4a962 0%, rgba(196, 169, 98, 0) 100%);
+}
+
+.experiences-reservation__seal p {
+  margin: 0;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif);
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.experiences-reservation__panel {
+  padding: clamp(28px, 3.5vw, 48px);
+  background: linear-gradient(165deg, #152824 0%, #0c1614 100%);
+  border: 1px solid rgba(196, 169, 98, 0.28);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.experiences-reservation__panel-header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experiences-reservation__panel-title {
+  margin: 0;
+  font-family: AstonMartinFlare, var(--ff-amflare, serif);
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.experiences-reservation__form {
+  margin: 0;
+}
+
+.experiences-reservation__group {
+  margin: 0 0 32px;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.experiences-reservation__group-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 22px;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.experiences-reservation__step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  border: 1px solid rgba(196, 169, 98, 0.45);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #c4a962;
+}
+
+.experiences-reservation__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 24px;
+}
+
+.experiences-reservation__field {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px;
+  height: auto !important;
+  min-height: 0;
+  padding: 0 !important;
+  cursor: default;
+  order: unset;
+}
+
+.experiences-reservation__field span {
+  display: block;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif) !important;
+  font-size: 11px !important;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.68) !important;
+  height: auto !important;
+  padding: 0 !important;
+}
+
+.experiences-reservation__field input,
+.experiences-reservation__field select,
+.experiences-reservation__field textarea {
+  display: block !important;
+  width: 100%;
+  min-height: 48px;
+  padding: 14px 0 13px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 0;
+  background: transparent !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif) !important;
+  font-size: 16px !important;
+  line-height: 1.5;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.experiences-reservation__field--wide {
+  grid-column: 1 / -1;
+}
+
+.experiences-reservation__field--full {
+  width: 100%;
+}
+
+.experiences-reservation__field input::placeholder,
+.experiences-reservation__field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.experiences-reservation__field select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3e%3cpath d='M6 9L12 15L18 9' stroke='%23c4a962' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 18px;
+  padding-right: 28px;
+}
+
+.experiences-reservation__field select option {
+  color: #121212;
+  background: #fff;
+}
+
+.experiences-reservation__field input:focus,
+.experiences-reservation__field select:focus,
+.experiences-reservation__field textarea:focus {
+  outline: none;
+  border-bottom-color: #c4a962;
+  box-shadow: 0 1px 0 0 rgba(196, 169, 98, 0.45);
+}
+
+.experiences-reservation__field textarea {
+  min-height: 132px;
+  resize: vertical;
+  padding-top: 12px;
+}
+
+.experiences-reservation__field input[type="date"] {
+  color-scheme: dark;
+}
+
+/* VIP custom dropdown */
+.vip-select {
+  position: relative;
+  z-index: 1;
+}
+
+.vip-select--open {
+  z-index: 20;
+}
+
+.vip-select__trigger {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 48px;
+  padding: 14px 0 13px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 0;
+  background: transparent !important;
+  color: #ffffff !important;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif) !important;
+  font-size: 16px !important;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.vip-select__trigger--placeholder .vip-select__value {
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.vip-select__value {
+  flex: 1;
+  min-width: 0;
+}
+
+.vip-select__chevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3e%3cpath d='M6 9L12 15L18 9' stroke='%23c4a962' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: transform 0.25s ease;
+}
+
+.vip-select--open .vip-select__trigger {
+  border-bottom-color: #c4a962;
+  box-shadow: 0 1px 0 0 rgba(196, 169, 98, 0.45);
+}
+
+.vip-select--open .vip-select__chevron {
+  transform: rotate(180deg);
+}
+
+.vip-select__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  max-height: 280px;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #162622 0%, #101917 100%);
+  border: 1px solid rgba(196, 169, 98, 0.32);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
+}
+
+.vip-select--open .vip-select__menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.vip-select__option {
+  margin: 0;
+  padding: 0;
+}
+
+.vip-select__option-button {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 0;
+  padding: 13px 18px !important;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif) !important;
+  font-size: 15px !important;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.vip-select__option-button:hover,
+.vip-select__option-button:focus {
+  outline: none;
+  background: rgba(196, 169, 98, 0.12) !important;
+  color: #ffffff !important;
+}
+
+.vip-select__option-button.is-selected {
+  background: rgba(0, 102, 94, 0.28) !important;
+  color: #ffffff !important;
+}
+
+.vip-select__check {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3e%3cpath d='M5 12L10 17L19 7' stroke='%23c4a962' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-select__menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vip-select__menu::-webkit-scrollbar-thumb {
+  background: rgba(196, 169, 98, 0.35);
+  border-radius: 999px;
+}
+
+.experiences-reservation__actions {
+  margin-top: 12px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experiences-reservation__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min(100%, 320px);
+  padding: 18px 36px;
+  border: 1px solid rgba(196, 169, 98, 0.55);
+  background: linear-gradient(135deg, #00665e 0%, #004944 100%);
+  color: #fff;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow:
+    0 14px 40px rgba(0, 102, 94, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.experiences-reservation__submit:hover {
+  transform: translateY(-2px);
+  border-color: #c4a962;
+  box-shadow:
+    0 18px 48px rgba(0, 102, 94, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.experiences-reservation__note,
+.experiences-reservation__footnote {
+  margin: 18px 0 0;
+  max-width: 52ch;
+  font-family: AstonMartinSans, var(--ff-amsans, sans-serif);
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 1023px) {
+  .experiences-reservation__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .experiences-reservation__aside {
+    min-height: 360px;
+  }
+
+  .experiences-reservation__intro {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .experiences-reservation {
+    padding: 56px 0 72px;
+  }
+
+  .experiences-reservation__panel {
+    padding: 24px 20px;
+  }
+
+  .experiences-reservation__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .experiences-reservation__submit {
+    width: 100%;
+  }
+}
+
+/* Explore grid */
+.explore-grid {
+  padding: 72px 24px 104px;
+  background: #fff;
+}
+
+.explore-grid-container_header {
+  font-family: var(--ff-amflare, serif);
+  font-size: clamp(24px, 2.8vw, 32px);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #121212;
+}
+
+.explore-grid-container_content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.explore-grid-tile {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.explore-grid-tile .tile-link {
+  display: block;
+  height: 100%;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+.explore-grid-tile_background,
+.explore-grid-tile_background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.explore-grid-tile:hover .explore-grid-tile_background img {
+  transform: scale(1.06);
+}
+
+.explore-grid-text-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 55%);
+}
+
+.explore-grid-tile_title {
+  font-family: var(--ff-amflare, serif);
+  font-size: clamp(20px, 2vw, 28px);
+  margin-bottom: 12px;
+}
+
+.explore-grid-link_section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.explore-grid-link_section svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+@media (max-width: 1023px) {
+  .explore-grid-container_content {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-program__layout,
+  .experience-program__layout--right {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .experience-program__copy .claim-in {
+    max-width: none;
+  }
+
+  .experience-program__layout--right .experience-program__copy .claim-in {
+    margin-left: 0;
+  }
+
+  .experience-program__arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .bloodline-carousel-helpText {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .bloodline-carousel .swiper-slide-header,
+  .bloodline-carousel .swiper-slide-footer,
+  .bloodline-carousel-restart {
+    left: 16px;
+    right: 16px;
+  }
+
+  .bloodline-carousel .swiper-slide-footer {
+    bottom: 72px;
+  }
+}

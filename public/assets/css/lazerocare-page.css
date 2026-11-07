@@ -1,0 +1,402 @@
+/* Lazerocare partner page */
+
+body[data-page="lazerocare-page"] .global-header-v2 .header-wrapper,
+.global-header-v2--lazerocare .header-wrapper {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid rgba(18, 18, 18, 0.08);
+}
+
+body[data-page="lazerocare-page"] .global-header-v2 .hamburger,
+body[data-page="lazerocare-page"] .global-header-v2 .close-icon,
+.global-header-v2--lazerocare .hamburger,
+.global-header-v2--lazerocare .close-icon {
+  color: #121212 !important;
+}
+
+.lazerocare-page {
+  background: #f7f8f7;
+  color: #121212;
+}
+
+.lazerocare-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 24px 88px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0, 102, 94, 0.28), transparent 42%),
+    radial-gradient(circle at 85% 10%, rgba(196, 169, 98, 0.18), transparent 36%),
+    linear-gradient(160deg, #031f1c 0%, #063530 45%, #0a4a44 100%);
+  color: #fff;
+}
+
+.lazerocare-hero__glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.lazerocare-hero__glow--left {
+  top: -120px;
+  left: -80px;
+  background: #00a896;
+}
+
+.lazerocare-hero__glow--right {
+  right: -100px;
+  bottom: -120px;
+  background: #c4a962;
+}
+
+.lazerocare-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.lazerocare-hero__eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.lazerocare-hero__title {
+  margin: 0 0 20px;
+  font-family: var(--ff-amflare, serif);
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.04em;
+}
+
+.lazerocare-hero__subtitle {
+  margin: 0;
+  max-width: 62ch;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.lazerocare-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.lazerocare-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 3px;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.lazerocare-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.lazerocare-btn--primary {
+  border: 1px solid rgba(196, 169, 98, 0.55);
+  background: linear-gradient(135deg, #0a8578 0%, #00665e 50%, #004944 100%);
+  color: #fff;
+  box-shadow: 0 14px 36px rgba(0, 102, 94, 0.28);
+}
+
+.lazerocare-btn--primary:hover {
+  transform: translateY(-2px);
+  border-color: #c4a962;
+}
+
+.lazerocare-btn--ghost {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.lazerocare-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.lazerocare-about {
+  padding: 72px 24px;
+}
+
+.lazerocare-about__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.lazerocare-about h2,
+.lazerocare-services h2,
+.lazerocare-cta h2 {
+  margin: 0 0 18px;
+  font-family: var(--ff-amflare, serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.lazerocare-about p {
+  margin: 0 0 16px;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(18, 18, 18, 0.78);
+}
+
+.lazerocare-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.lazerocare-stat {
+  padding: 22px 20px;
+  border: 1px solid rgba(0, 102, 94, 0.14);
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+}
+
+.lazerocare-stat strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--ff-amflare, serif);
+  font-size: 34px;
+  font-weight: 400;
+  color: #00665e;
+}
+
+.lazerocare-stat span {
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(18, 18, 18, 0.68);
+}
+
+.lazerocare-services {
+  padding: 0 24px 72px;
+}
+
+.lazerocare-services__header {
+  max-width: 720px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.lazerocare-services__header p {
+  margin: 0;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(18, 18, 18, 0.72);
+}
+
+.lazerocare-services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.lazerocare-service-card {
+  padding: 24px 20px;
+  border: 1px solid rgba(18, 18, 18, 0.08);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.lazerocare-service-card h3 {
+  margin: 0 0 12px;
+  font-family: var(--ff-amflare, serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.lazerocare-service-card p {
+  margin: 0;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(18, 18, 18, 0.72);
+}
+
+.lazerocare-cta {
+  margin: 0 24px 72px;
+  padding: 56px 32px;
+  border-radius: 6px;
+  text-align: center;
+  background:
+    linear-gradient(135deg, rgba(0, 102, 94, 0.08), rgba(196, 169, 98, 0.08)),
+    #fff;
+  border: 1px solid rgba(0, 102, 94, 0.12);
+}
+
+.lazerocare-cta p {
+  max-width: 58ch;
+  margin: 0 auto 28px;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(18, 18, 18, 0.72);
+}
+
+/* Embedded portal */
+body.partner-portal-body {
+  overflow: hidden;
+}
+
+.partner-portal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  height: var(--doc-height, 100vh);
+  background: #061f1c;
+}
+
+.partner-portal__bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  min-height: 64px;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(6, 31, 28, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.partner-portal__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: start;
+  color: #fff;
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.partner-portal__back svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transform: rotate(180deg);
+}
+
+.partner-portal__brand {
+  justify-self: center;
+}
+
+.partner-portal__brand img {
+  display: block;
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.partner-portal__actions {
+  display: flex;
+  justify-self: end;
+  align-items: center;
+  gap: 12px;
+}
+
+.partner-portal__link {
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--ff-amsans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.partner-portal__link--accent {
+  padding: 10px 14px;
+  border: 1px solid rgba(196, 169, 98, 0.45);
+  border-radius: 3px;
+  color: #fff;
+}
+
+.partner-portal__frame {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #fff;
+}
+
+@media (max-width: 1023px) {
+  .lazerocare-about__grid,
+  .lazerocare-services__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .partner-portal__bar {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 12px 16px;
+  }
+
+  .partner-portal__back,
+  .partner-portal__actions {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .lazerocare-hero {
+    padding-top: 104px;
+  }
+
+  .lazerocare-about__grid,
+  .lazerocare-services__grid,
+  .lazerocare-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-portal__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .partner-portal__link--accent {
+    width: 100%;
+    text-align: center;
+  }
+}
